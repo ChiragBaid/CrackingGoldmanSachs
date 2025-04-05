@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        unordered_map<int, int> count = {{0, 0}, {1, 0}, {2,0}};
+
+        for(int num : nums){
+            count[num]++;
+        }
+
+        int x=0;
+        for(int c=0;c<3;c++){
+            int freq = count[c];
+            for (int j = 0; j < freq; j++) {
+                nums[x] = c;
+                x++;
+            }
+        }
+    }
+};
